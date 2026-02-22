@@ -1,28 +1,74 @@
-Hi there, I made this because I was tired of having multiple versions of my resume on my device.
+## C.V.V.C. (Curriculum Vitae Version Control)
 
-This is a version control CLI for resumes/curriculum vitae's (CVs) and it wraps git in a way so that you can version control binary files like a pdf, which doesnt happen on git conventionally.
-And yes, you can call this a git wrapper because I use 'go-git' under the hood to power the cli functions. 
+C.V.V.C. is a command-line interface for version controlling resumes and CVs. It wraps Git functionality using the Go library **go-git**, enabling structured version control for resume files, including binary outputs such as PDFs.
 
-The commands available with C.V.V.C. as of now are: 
-1. cvvc init -> initialises a tempelate resume which you can work on. (Using jake's resume tempelate from Overleaf)
-2. cvvc edit -> Opens a local editor at localhost:9090, you can edit your resume here and add/remove/reorder sections and section data as well
-3. cvvc status -> Tells you the current branch you are on and the status of commits
-4. cvvc commit -m "Message" -> Commits the current state of the resume with a message. Stores in as permenant history
-5. cvvc list -> Gives a list of all the past commits you have mad on that resume
-6. cvvc branch create BranchName -> create a new branch from your existing one.
-7. cvvc switch BranchName -> switched between branches
-8. cvvc export -> exports the current resume into a pdf form
-9. cvvc diff -> Shows the diff of all the edits made do the resume, compared to the previous commit
+The goal is simple: eliminate multiple scattered resume versions and manage your CV with proper branching, history, and diffs—just like source code.
 
-What's next to come:
-1. Rebase -> Moves your current to a previous commit
-2. Selective diff-ing -> Compare between any two versions of the resume, of your choice
-3. Tempelates -> currently supports only Jake's resume, would expand to include multiple tempelates that can be selected at time of cvvc init
-4. Transform -> convert tempelate of resume from one form to another
+---
 
-If you wish to contribute, PRs are more than welcome. Also if you find any issue feel free to put it up. You can also contact me personally on my email or LinkedIn.    
+## Features
 
-Currently this is still under development, I will release the 1.0 version sometime in March 2026.
-If this brings value to you, do give a star and follow me. I make software that is directly targeted to benefit the end user.
+### Core Commands
 
-Made with a lot of <3 by Dewashish
+* `cvvc init`
+  Initializes a resume template (currently based on Jake’s Resume Template from Overleaf).
+
+* `cvvc edit`
+  Launches a local editor at `localhost:9090` to modify, add, remove, or reorder sections and entries.
+
+* `cvvc status`
+  Displays the current branch and commit status.
+
+* `cvvc commit -m "message"`
+  Commits the current state of the resume with a message, storing it in permanent history.
+
+* `cvvc list`
+  Lists all previous commits for the resume.
+
+* `cvvc branch create <branch-name>`
+  Creates a new branch from the current branch.
+
+* `cvvc switch <branch-name>`
+  Switches between branches.
+
+* `cvvc export`
+  Exports the current resume to PDF format.
+
+* `cvvc diff`
+  Shows changes made compared to the previous commit.
+
+---
+
+## Roadmap
+
+* **Rebase**
+  Move the current branch to a previous commit.
+
+* **Selective Diffing**
+  Compare any two chosen resume versions.
+
+* **Multiple Templates**
+  Support for additional resume templates selectable during initialization.
+
+* **Template Transformation**
+  Convert a resume from one template format to another.
+
+---
+
+## Contributing
+
+Contributions are welcome.
+Please open a pull request for improvements or submit an issue if you encounter any problems.
+
+You can also reach out via email or LinkedIn.
+
+---
+
+## Release
+
+C.V.V.C. is currently under active development.
+Version 1.0 is planned for release in March 2026.
+
+If you find this project useful, consider starring the repository and following for future updates.
+
+Built by Dewashish (with love ofcc).
