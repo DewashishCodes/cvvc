@@ -21,14 +21,14 @@ var commitCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		msg, _ := cmd.Flags().GetString("message")
 		if msg == "" {
-			fmt.Println("❌ Please provide a commit message: cvvc commit -m 'Updated skills'")
+			fmt.Println("[ERROR] Please provide a commit message: mycelium commit -m 'Updated skills'")
 			return
 		}
 
 		// Open Repo
 		r, err := git.PlainOpen(".")
 		if err != nil {
-			fmt.Println("Error: Not a CVVC repo. Run 'cvvc init' first.")
+			fmt.Println("Error: Not a mycelium repo. Run 'mycelium init' first.")
 			return
 		}
 
@@ -44,8 +44,8 @@ var commitCmd = &cobra.Command{
 		// 2. Commit
 		commit, err := w.Commit(msg, &git.CommitOptions{
 			Author: &object.Signature{
-				Name:  "CVVC User",
-				Email: "user@cvvc.local",
+				Name:  "mycelium User",
+				Email: "user@mycelium.local",
 				When:  time.Now(),
 			},
 		})
@@ -55,6 +55,6 @@ var commitCmd = &cobra.Command{
 			return
 		}
 
-		fmt.Printf("✅ Version Saved! [%s] %s\n", commit.String()[:7], msg)
+		fmt.Printf("[SUCCESS] Version Saved! [%s] %s\n", commit.String()[:7], msg)
 	},
 }

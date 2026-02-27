@@ -1,7 +1,7 @@
 package main
 
-import "github.com/DewashishCodes/cvvc/cmd"
+import mycelium "mycelium/cmd"
 
 func main() {
-	cmd.Execute()
+	mycelium.Execute()
 }

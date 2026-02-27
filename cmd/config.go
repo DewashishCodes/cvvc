@@ -24,25 +24,25 @@ var configCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		key, _ := cmd.Flags().GetString("key")
 		if key == "" {
-			fmt.Println("❌ Please provide a key: cvvc config --key YOUR_KEY")
+			fmt.Println("[ERROR] Please provide a key: mycelium config --key YOUR_KEY")
 			return
 		}
 
 		home, _ := os.UserHomeDir()
-		configPath := filepath.Join(home, ".cvvc_config.json")
+		configPath := filepath.Join(home, ".mycelium_config.json")
 
 		cfg := Config{GeminiKey: key}
 		data, _ := json.MarshalIndent(cfg, "", "  ")
 
 		os.WriteFile(configPath, data, 0644)
-		fmt.Println("✅ API Key saved to", configPath)
+		fmt.Println("[SUCCESS] API Key saved to", configPath)
 	},
 }
 
 // Helper to get the key in other files
 func getAPIKey() string {
 	home, _ := os.UserHomeDir()
-	configPath := filepath.Join(home, ".cvvc_config.json")
+	configPath := filepath.Join(home, ".mycelium_config.json")
 	data, err := os.ReadFile(configPath)
 	if err != nil {
 		return ""

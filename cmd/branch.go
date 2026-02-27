@@ -57,7 +57,7 @@ var branchSwitchCmd = &cobra.Command{
 		})
 
 		if err != nil {
-			fmt.Printf("❌ Branch '%s' does not exist.\n", name)
+			fmt.Printf("[ERROR] Branch '%s' does not exist.\n", name)
 		} else {
 			fmt.Printf("🔄 Switched to branch '%s'.\n", name)
 		}

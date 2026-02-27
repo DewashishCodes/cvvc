@@ -59,7 +59,7 @@ var diffCmd = &cobra.Command{
 		r, _ := git.PlainOpen(".")
 		ref, err := r.Head()
 		if err != nil {
-			fmt.Println("❌ No commit history found. Commit once first.")
+			fmt.Println("[ERROR] No commit history found. Commit once first.")
 			return
 		}
 		commit, _ := r.CommitObject(ref.Hash())

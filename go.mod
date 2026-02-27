@@ -1,4 +1,4 @@
-module github.com/DewashishCodes/cvvc
+module mycelium
 
 go 1.25.0
 

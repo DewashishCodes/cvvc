@@ -17,7 +17,7 @@ var statusCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		r, err := git.PlainOpen(".")
 		if err != nil {
-			fmt.Println("❌ Not a CVVC repo. Run 'cvvc init'")
+			fmt.Println("[ERROR] Not a mycelium repo. Run 'mycelium init'")
 			return
 		}
 
@@ -36,8 +36,8 @@ var statusCmd = &cobra.Command{
 		if status.IsClean() {
 			fmt.Println("✨ Everything is committed and saved.")
 		} else {
-			fmt.Println("⚠️  Uncommitted changes found in resume.json!")
-			fmt.Println("👉 Run 'cvvc commit -m \"message\"' to save your first version.")
+			fmt.Println("[WARN]  Uncommitted changes found in resume.json!")
+			fmt.Println("👉 Run 'mycelium commit -m \"message\"' to save your first version.")
 		}
 	},
 }

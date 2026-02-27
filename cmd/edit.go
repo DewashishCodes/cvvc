@@ -34,7 +34,7 @@ var editCmd = &cobra.Command{
 			w.WriteHeader(200)
 		})
 
-		fmt.Println("🚀 CVVC Editor: http://localhost:9090")
+		fmt.Println("[INFO] mycelium Editor: http://localhost:9090")
 		http.ListenAndServe(":9090", nil)
 	},
 }
@@ -43,7 +43,7 @@ const editorHTML = `
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CVVC Master Editor</title>
+    <title>mycelium Master Editor</title>
     <style>
         :root { --bg: #f8f9fa; --sidebar: #212529; --primary: #0d6efd; }
         body { margin: 0; display: flex; height: 100vh; font-family: 'Segoe UI', sans-serif; background: var(--bg); overflow: hidden; }
@@ -74,7 +74,7 @@ const editorHTML = `
         <div class="nav-item active" onclick="tab('basics', this)">👤</div>
         <div class="nav-item" onclick="tab('education', this)">🎓</div>
         <div class="nav-item" onclick="tab('experience', this)">💼</div>
-        <div class="nav-item" onclick="tab('projects', this)">🚀</div>
+        <div class="nav-item" onclick="tab('projects', this)">[INFO]</div>
         <div class="nav-item" onclick="tab('skills', this)">🛠️</div>
         <div class="nav-item" onclick="tab('order', this)">🔃</div>
     </div>

@@ -41,7 +41,7 @@ var exportCmd = &cobra.Command{
 		// 2. Launch Local Browser
 		path, _ := launcher.LookPath()
 		if path == "" {
-			fmt.Println("❌ Error: Could not find Chrome or Edge.")
+			fmt.Println("[ERROR] Error: Could not find Chrome or Edge.")
 			return
 		}
 
@@ -53,7 +53,7 @@ var exportCmd = &cobra.Command{
 		page.MustWaitLoad()
 
 		// 3. Capture PDF Stream
-		fmt.Println("🚀 Rendering PDF...")
+		fmt.Println("[INFO] Rendering PDF...")
 		pdfStream, err := page.PDF(&proto.PagePrintToPDF{
 			PrintBackground: true,
 			PaperWidth:      toPtr(8.27),
@@ -65,14 +65,14 @@ var exportCmd = &cobra.Command{
 		})
 
 		if err != nil {
-			fmt.Println("❌ Error rendering:", err)
+			fmt.Println("[ERROR] Error rendering:", err)
 			return
 		}
 
 		// 4. FIX: Convert Stream to Bytes using 'io'
 		pdfBytes, err := io.ReadAll(pdfStream)
 		if err != nil {
-			fmt.Println("❌ Error reading stream:", err)
+			fmt.Println("[ERROR] Error reading stream:", err)
 			return
 		}
 
@@ -80,11 +80,11 @@ var exportCmd = &cobra.Command{
 		outputName := "Dewashish_Resume.pdf"
 		err = os.WriteFile(outputName, pdfBytes, 0644)
 		if err != nil {
-			fmt.Println("❌ Error saving file:", err)
+			fmt.Println("[ERROR] Error saving file:", err)
 			return
 		}
 
-		fmt.Printf("✅ Success! Exported to %s\n", outputName)
+		fmt.Printf("[SUCCESS] Success! Exported to %s\n", outputName)
 	},
 }
 
